@@ -4,7 +4,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { searchListings } from '../api/datas/allHotels';
 import SearchForm from '../components/home/hero/SearchForm';
-import HotelCard from '../components/home/hotels/HotelCard';
+import HotelCard from '../components/shared/HotelCard';
 
 const SearchResult = () => {
     const [searchParams] = useSearchParams();

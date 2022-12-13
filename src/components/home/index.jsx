@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "./carousel";
 import Hero from "./hero";
 import Hotels from "./hotels";
 
@@ -7,6 +8,7 @@ const HomePage = () => {
     <main>
       <Hero />
       <Hotels />
+      <Carousel />
     </main>
   );
 };

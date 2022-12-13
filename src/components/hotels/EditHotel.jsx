@@ -13,6 +13,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/hy-am";
 import locale from "antd/es/date-picker/locale/en_US";
 import { validators } from "../shared/validators";
+import Loading from "../shared/Loading";
 
 const EditHotel = () => {
   const location = useLocation();
@@ -34,7 +35,6 @@ const EditHotel = () => {
       delete res.data.image;
       setLocationValue(res.data.location);
       setValues(res.data);
-
     } catch (err) {
       console.error(err);
     }
@@ -51,7 +51,7 @@ const EditHotel = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(validators(values))
+    setErrorMessage(validators(values));
     if (Object.values(validators(values)).length === 1) {
       try {
         const formData = new FormData();
@@ -78,7 +78,7 @@ const EditHotel = () => {
 
   return (
     <>
-      {values && (
+      {values ? (
         <div className="mt-24 w-full px-3 md:px-10">
           <div className="grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 max-w-screen-2xl m-auto">
             <div className="col-span-2 col-start-2 md:flex md:col-start-1 md:col-span-4 lg:col-start-2 lg:col-span-5">
@@ -109,7 +109,6 @@ const EditHotel = () => {
                 value={values.title}
                 onChange={handleChange}
                 errorMessage={errorMessage}
-
               />
 
               <HotelInput
@@ -119,7 +118,6 @@ const EditHotel = () => {
                 value={values.content}
                 onChange={handleChange}
                 errorMessage={errorMessage}
-
               />
               <LocationInput
                 name="location"
@@ -137,7 +135,6 @@ const EditHotel = () => {
                 value={values.price}
                 onChange={handleChange}
                 errorMessage={errorMessage}
-
               />
               <SelectInput
                 text="bed"
@@ -146,7 +143,6 @@ const EditHotel = () => {
                 value={values.bed}
                 onChange={handleChange}
                 errorMessage={errorMessage}
-
               />
               <RangeInput
                 text="Date"
@@ -161,7 +157,6 @@ const EditHotel = () => {
                 defaultValue={[dayjs(values.from, "YYYY-MM-DD"), dayjs(values.to, "YYYY-MM-DD")]}
                 format="YYYY-MM-DD"
                 errorMessage={errorMessage}
-
               />
               <div className="flex justify-center">
                 <button
@@ -174,6 +169,8 @@ const EditHotel = () => {
             </form>
           </div>
         </div>
+      ) : (
+        <Loading />
       )}
     </>
   );

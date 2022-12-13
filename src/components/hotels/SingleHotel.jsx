@@ -11,6 +11,7 @@ import useHotels from "../redux/actions/useHotels";
 import room from "/images/room.jpg";
 import { getSessionId } from "../../api/stripe/stripe";
 import { loadStripe } from "@stripe/stripe-js";
+import Loading from "../shared/Loading";
 
 const SingleHotel = () => {
   const navigate = useNavigate();
@@ -72,8 +73,8 @@ const SingleHotel = () => {
 
   return (
     <>
-      {Object.keys(hotel).length && (
-        <div className="">
+      {Object.keys(hotel).length ? (
+        <div>
           <div className="relative flex justify-center items-center p-3">
             <h1 className="absolute text-4xl flex justify-center text-center items-center text-[#77ffbf] md:text-6xl font-allison lg:text-8xl font-semibold">
               {hotel.title}
@@ -162,6 +163,10 @@ const SingleHotel = () => {
                 : "Login to Book"}
             </button>
           </div>
+        </div>
+      ) : (
+        <div className="h-screen flex justify-center items-center">
+          <Loading />
         </div>
       )}
     </>

@@ -3,7 +3,7 @@ import { BiCalendarAlt } from "react-icons/bi";
 import { BiBed } from "react-icons/bi";
 import moment from "moment/moment";
 import { GoLocation } from "react-icons/go";
-import useHotels from "../../redux/actions/useHotels";
+import useHotels from "../redux/actions/useHotels";
 
 const HotelDetails = ({ hotel }) => {
   const { diffDays } = useHotels();
@@ -34,9 +34,7 @@ const HotelDetails = ({ hotel }) => {
             <i>Posted {moment(hotel.createdAt).fromNow()}</i>
           </small>
         </div>
-
       </div>
-      
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { userHotelBookings } from "../../api/datas/allHotels";
-import HotelCard from "../home/hotels/HotelCard";
+import HotelCard from "../shared/HotelCard";
 import noData from "/images/noData.gif";
 
 const Bookings = () => {
@@ -26,7 +26,7 @@ const Bookings = () => {
 
   return (
     <div className="px-3 md:px-10 grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 md:col-start-2 max-w-screen-2xl m-auto">
-      {hotels && hotels.length > 1 ? (
+      {hotels && hotels.length ? (
         hotels.map((hotel) => (
           <div
             className="col-span-4 2xl:col-span-3 shadow-lg shadow-neutral-900/90 rounded-2xl relative md:h-72 mb-5 group md:overflow-hidden"

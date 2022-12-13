@@ -3,6 +3,7 @@ import { BiHomeAlt } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createConnectAccount } from "../../api/stripe/stripe";
+import Loading from "../shared/Loading";
 
 const NotConnected = () => {
   // Will be deleted
@@ -31,13 +32,18 @@ const NotConnected = () => {
             <strong className="text-black">HotelBooking.am</strong> partners with stripe to transfer
             earnings to your bank accout
           </p>
-          <button
-            className="button1 h-12 w-28 rounded-xl mt-4 mb-6 text-white bg-black/70 hover:border-2 active:border-2 hover:bg-black active:bg-black"
-            onClick={submitHandler}
-            disabled={loading}
-          >
-            {loading ? "Processing..." : "Setup Payouts"}
-          </button>
+          {!loading ? (
+            <button
+              className="button1 h-12 w-28 rounded-xl mt-4 mb-6 text-white bg-black/70 hover:border-2 active:border-2 hover:bg-black active:bg-black"
+              onClick={submitHandler}
+              disabled={loading}
+            >
+              Setup Payouts
+            </button>
+          ) : (
+            <Loading />
+          )}
+
           <p className="">
             <small>You'll be redirected to Stripe to complete the onboarding process.</small>
           </p>
