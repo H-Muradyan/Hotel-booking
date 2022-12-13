@@ -21,7 +21,6 @@ const SearchForm = ({ locationProps, dateProps, bedProps }) => {
   };
 
   return (
-    <div className="px-4 md:px-0 mt-8 md:absolute md:bottom-16 w-full">
       <form
         onSubmit={handleSubmit}
         className="md:px-0 space-y-8 flex-col md:flex-row items-center flex justify-center md:space-y-0 md:space-x-2 w-full lg:space-x-4"
@@ -39,7 +38,6 @@ const SearchForm = ({ locationProps, dateProps, bedProps }) => {
         <SelectInput text="bed" name="bed" value={bed} onChange={(e) => setBed(e.target.value)} />
         <button className={styles.serchBtn}></button>
       </form>
-    </div>
   );
 };
 
