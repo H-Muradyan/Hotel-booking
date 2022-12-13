@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import { toast } from "react-toastify";
@@ -23,6 +23,13 @@ const EditHotel = () => {
   const { token } = auth;
 
   const [values, setValues] = useState(null);
+
+  const myRef = useRef();
+
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
 
   const [preview, setPreview] = useState(
     `${import.meta.env.VITE_APP_API}/hotel/image/${location.state.id}`
@@ -77,7 +84,7 @@ const EditHotel = () => {
   }, []);
 
   return (
-    <>
+    <div ref={myRef}>
       {values ? (
         <div className="mt-24 w-full px-3 md:px-10">
           <div className="grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 max-w-screen-2xl m-auto">
@@ -172,7 +179,7 @@ const EditHotel = () => {
       ) : (
         <Loading />
       )}
-    </>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const Hotels = () => {
   }, []);
 
   return (
-    <div className="mx-4 md:mx-10">
+    <div className="mx-3 md:mx-10">
       <HotelsText />
       <AllHotels data={data} />
     </div>

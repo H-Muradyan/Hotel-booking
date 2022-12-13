@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import loginImg from "/images/loginImg.jpg";
 import loginImgMob from "/images/loginImgMob.jpg";
 import GetWidth from "../customHooks/GetWidth";
 
 const AuthPage = ({ children, text }) => {
+  const myRef = useRef();
+
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   const widthSize = GetWidth();
 
   return (
-    <div className="relative flex justify-center h-screen">
+    <div ref={myRef} className="relative flex justify-center h-screen">
       <img
         className=" "
         src={widthSize >= 768 ? loginImg : loginImgMob}

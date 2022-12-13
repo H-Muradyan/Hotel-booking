@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
@@ -8,6 +8,11 @@ import HotelCard from "../components/shared/HotelCard";
 import NotFound from "../components/shared/NotFound";
 
 const SearchResult = () => {
+  const myRef = useRef();
+
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, []);
   const [searchParams] = useSearchParams();
   const [hotels, setHotels] = useState();
 
@@ -22,7 +27,7 @@ const SearchResult = () => {
   }, [window.location.search]);
 
   return (
-    <div className="mt-32">
+    <div ref={myRef} className="mt-32">
       <div className="mb-10">
         <SearchForm locationProps={location} dateProps={date} bedProps={bed} />
       </div>

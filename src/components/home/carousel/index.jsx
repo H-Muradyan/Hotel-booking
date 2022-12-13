@@ -18,7 +18,7 @@ const Carousel = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="md:grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 md:col-start-2 max-w-screen-2xl m-auto">
+    <div className="px-3 md:px-10 md:grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 md:col-start-2 max-w-screen-2xl m-auto">
       <div className="col-span-4 md:col-span-8 lg:col-span-10 lg:col-start-2 my-20">
         <div className="flex overflow-hidden max-w-full min-w-full">
           {slidingData.map((elem, index) => {
@@ -30,7 +30,7 @@ const Carousel = () => {
                   percent - prevPercent !== 100 ? "duration-100" : "duration-500"
                 } ${percent - prevPercent !== -100 ? "duration-100" : "duration-500"}`}
               >
-                <div className="bg-headerbg flex flex-col items-center justify-center py-16 px-8 h-580 ml-1 rounded-2xl  md:h-474">
+                <div className="bg-headerbg flex flex-col items-center justify-center py-16 px-8 h-580 rounded-2xl  md:h-474">
                   <h2 className="font-semibold text-5xl text-center text-white mb-6">
                     {elem.title}
                   </h2>

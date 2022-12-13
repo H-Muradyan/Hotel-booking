@@ -17,14 +17,6 @@ const Connected = () => {
   const { token } = auth;
   const { getSellerHotels } = useSeller(token);
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };

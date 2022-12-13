@@ -91,6 +91,10 @@ td,
   color: white !important;
 }
 
+.ant-picker-header button {
+  color: white !important;
+}
+
 :where(.css-dev-only-do-not-override-1ij74fp).ant-picker-dropdown
   .ant-picker-cell-in-view:is(
     :where(.css-dev-only-do-not-override-1ij74fp).ant-picker-dropdown .ant-picker-cell-in-range
@@ -144,13 +148,6 @@ td,
 :where(.css-dev-only-do-not-override-1ij74fp).ant-modal .ant-modal-content {
   background: rgb(23 20 20 / 78%);
 }
-
-
-
-
-
-
-
 
 .lds-roller {
   display: inline-block;

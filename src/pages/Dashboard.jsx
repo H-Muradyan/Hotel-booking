@@ -1,10 +1,17 @@
-import React from 'react'
-import DashboardPage from '../components/dashboard'
+import React, { useEffect, useRef } from "react";
+import DashboardPage from "../components/dashboard";
 
 const Dashboard = () => {
-  return (
-    <DashboardPage />
-  )
-}
+  const myRef = useRef();
 
-export default Dashboard
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  return (
+    <div ref={myRef}>
+      <DashboardPage />
+    </div>
+  );
+};
+
+export default Dashboard;

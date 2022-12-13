@@ -4,26 +4,27 @@ import useLogin from "../redux/actions/useLogin";
 import AuthPage from "../shared/AuthPage";
 import TextInput from "../shared/TextInput";
 import { validationLogin } from "../shared/validators";
+import { LoadingOutlined } from "@ant-design/icons";
+
+
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
+
   let initialValues = {
     email: "",
     password: "",
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     let data = {
       email: values.email,
       password: values.password,
     };
+    setLoading(true);
     loginHandler(data);
   };
   const { loginHandler } = useLogin();
-
-
-  const [loading, setLoading] = useState(false);
-
-
 
   return (
     <AuthPage text="Log in">
@@ -36,6 +37,9 @@ const LoginPage = () => {
               type="submit"
               className="button1 h-12 w-28 rounded text-white bg-black/70 hover:border-2 active:border-2 hover:bg-black active:bg-black"
             >
+               {loading && (
+                <LoadingOutlined className="mr-2" spin/>
+              )}
               Log in
             </button>
           </div>

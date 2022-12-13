@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import GetWidth from "../../customHooks/GetWidth";
 import HotelCard from "../../shared/HotelCard";
 import NotFound from "../../shared/NotFound";
 
 const AllHotels = ({ data, show }) => {
-  console.log("AllHotels")
-  const [count, setCount] = useState(6);
+  const widthSize = GetWidth();
+  const [count, setCount] = useState();
+
+  useEffect(() => {
+    setCount(widthSize >= 1536 ? 8 : 6);
+  }, [widthSize]);
 
   const countIncrement = () => {
     setCount((prevState) => (data.length > prevState ? prevState + 6 : prevState));
@@ -37,7 +42,7 @@ const AllHotels = ({ data, show }) => {
           >
             View More
           </button>
-          </div>
+        </div>
       )}
     </div>
   );

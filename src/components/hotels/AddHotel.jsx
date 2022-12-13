@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { createHotel } from "../../api/datas/allHotels";
@@ -32,6 +32,14 @@ const AddHotel = () => {
     setValues({ ...values, image: e.target.files[0] });
   };
 
+
+  const myRef = useRef();
+
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -63,7 +71,7 @@ const AddHotel = () => {
     }
   };
   return (
-    <div className="mt-24 w-full px-3 md:px-10">
+    <div ref={myRef} className="mt-24 w-full px-3 md:px-10">
       <div className="grid grid-cols-4 gap-x-8 md:grid-cols-8 lg:grid-cols-12 max-w-screen-2xl m-auto">
         <div className="col-span-2 col-start-2 md:flex md:col-start-1 md:col-span-4 lg:col-start-2 lg:col-span-5">
           <label className="cursor-pointer w-full text-center">

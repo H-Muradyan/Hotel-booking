@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiBed, BiCalendarAlt } from "react-icons/bi";
 import { IoIosPeople } from "react-icons/io";
 import { GiResize, GiFruitTree } from "react-icons/gi";
@@ -35,6 +35,11 @@ const SingleHotel = () => {
       toast.error(err);
     }
   };
+  const myRef = useRef();
+
+  useEffect(() => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   const handleBooking = async (e) => {
     e.preventDefault();
@@ -72,7 +77,7 @@ const SingleHotel = () => {
   }, []);
 
   return (
-    <>
+    <div ref={myRef}>
       {Object.keys(hotel).length ? (
         <div>
           <div className="relative flex justify-center items-center p-3">
@@ -169,7 +174,7 @@ const SingleHotel = () => {
           <Loading />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

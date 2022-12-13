@@ -16,16 +16,6 @@ export const footerData = {
         text: "Dashboard",
         path: "/dashboard/bookings",
       },
-      {
-        id: 2,
-        text: "Log in",
-        path: "/login",
-      },
-      {
-        id: 3,
-        text: "Register",
-        path: "/register",
-      },
   ],
   contacts: [
     {
